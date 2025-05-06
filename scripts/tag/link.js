@@ -5,8 +5,9 @@ function link(args) {
     let link = args[2];
 
     // 获取网页favicon
-    let urlNoProtocol = link.replace(/^https?\:\/\//i, "");
-    let imgUrl = "https://api.iowen.cn/favicon/" + urlNoProtocol + ".png";
+    let urlNoProtocol = link.replace(/^https?\:\/\//i, "").replace(/\/.*$/, "");
+
+    let imgUrl = "https://api.teohzy.com/favicon/" + urlNoProtocol + ".png";
 
     return `<a class="tag-Link" target="_blank" href="${link}">
     <div class="tag-link-tips">引用站外地址,不保证站点的可用性和安全性</div>
