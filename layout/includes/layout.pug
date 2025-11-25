@@ -23,18 +23,18 @@ html(lang=config.language data-theme=theme.display_mode class=htmlClassHideAside
             const arr = !{JSON.stringify(bgStyleArr)}
             const webBgDiv = document.getElementById('web_bg')
 
-            function setRandomBg() {
+            const setRandomBg = () => {
               webBgDiv.style = arr[Math.floor(Math.random() * arr.length)]
+              requestAnimationFrame(() => webBgDiv.classList.add('bg-animation'))
             }
 
-            setRandomBg()
             document.addEventListener('pjax:send', () => {
-              setRandomBg()
-              // Reload CSS animation
+              webBgDiv.style = ''
               webBgDiv.classList.remove('bg-animation')
-              void webBgDiv.offsetWidth
-              webBgDiv.classList.add('bg-animation')
             })
+
+            document.addEventListener('pjax:complete', setRandomBg)
+            document.addEventListener('DOMContentLoaded', setRandomBg)
           })()
 
     !=partial('includes/sidebar', {}, {cache: true})
