@@ -70,6 +70,13 @@ if hexo-config('mermaid.enable')
 
     & > svg
       height: 100%
+      max-width: 100%
+      cursor: grab
+      touch-action: none
+      user-select: none
+
+      &:active
+        cursor: grabbing
 
   if hexo-config('mermaid.code_write')
     pre > code.mermaid
