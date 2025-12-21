@@ -54,6 +54,11 @@ script.
       if (!clone.getAttribute('xmlns:xlink') && clone.outerHTML.includes('xlink:')) {
         clone.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink')
       }
+      // inject background to match current theme
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark'
+      const bg = getComputedStyle(document.body).backgroundColor || (isDark ? '#1e1e1e' : '#ffffff')
+      if (!clone.style.background) clone.style.background = bg
+
       const serializer = new XMLSerializer()
       const svgSource = serializer.serializeToString(clone)
       const blob = new Blob([svgSource], { type: 'image/svg+xml;charset=utf-8' })
@@ -275,6 +280,7 @@ script.
           item.__mermaidOriginalSvg = svg
           attachMermaidViewerButton(item)
         }
+
 
         // mermaid v9 and v10 compatibility
         typeof renderFn === 'string' ? renderMermaid(renderFn) : renderFn.then(({ svg }) => renderMermaid(svg))
