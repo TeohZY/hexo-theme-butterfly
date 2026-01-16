@@ -1,7 +1,12 @@
-#loading-box(onclick='document.getElementById("loading-box").classList.add("loaded")')
-  .loading-bg
-    div.loading-img
-    .loading-image-dot
+#loading-box
+  .loading-left-bg
+  .loading-right-bg
+  .spinner-box
+    .configure-border-1
+      .configure-core
+    .configure-border-2
+      .configure-core
+    .loading-word= _p('loading')
 
 script.
   (()=>{
@@ -34,10 +39,4 @@ script.
       btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
       btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
     }
-  }
-  window.addEventListener('load',()=> { preloader.endLoading() })
-
-  if (!{theme.pjax && theme.pjax.enable}) {
-    document.addEventListener('pjax:send', () => { preloader.initLoading() })
-    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
-  }
+  })()
