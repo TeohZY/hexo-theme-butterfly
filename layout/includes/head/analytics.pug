@@ -33,7 +33,6 @@ if theme.microsoft_clarity
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "!{theme.microsoft_clarity}");
 
-<<<<<<< HEAD
 
 if theme.la51 && theme.la51.laId 
   script.
@@ -48,7 +47,6 @@ if theme.la51 && theme.la51.perfId
     h.crossorigin=true;
     h.onload=function(){new c[b]["Monitor"]().init({id:"!{theme.la51.perfId}"});};
     f.parentNode.insertBefore(h,f);h.src=e;})(window,document,"https://sdk.51.la/perf/js-sdk-perf.min.js","LingQue");
-=======
 if (theme.google_tag_manager && theme.google_tag_manager.tag_id)
   script.
     (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -59,4 +57,3 @@ if (theme.google_tag_manager && theme.google_tag_manager.tag_id)
     btf.addGlobalFn('pjaxComplete', () => {
       dataLayer.push({'event': 'pjaxComplete', 'page_title': document.title, 'page_location': location.href, 'page_path': window.location.pathname})
     }, 'google_tag_manager')
->>>>>>> upstream/dev
